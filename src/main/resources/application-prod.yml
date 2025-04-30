@@ -2,9 +2,9 @@ spring:
   application:
     name: rss25SB
   datasource:
-    url: jdbc:postgresql://localhost:5432/db
-    username: zakariajuba
-    password: zakariajuba
+    url: jdbc:postgresql://bcdinkaltttrftd7aykw-postgresql.services.clever-cloud.com:50013/bcdinkaltttrftd7aykw
+    username: ufukbgb6bn4jxvoueqwd
+    password: bwKeXGt7AgL22r8GyhtrJVWqcf1RWS
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
