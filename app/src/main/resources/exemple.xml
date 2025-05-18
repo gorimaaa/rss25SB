@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://univ.fr/rss25" lang="fr" version="25">
+    <title>Exemple de flux RSS25SB</title>
+    <pubDate>2024-06-01T12:00:00Z</pubDate>
+    <copyright>© Université de Rouen 2024</copyright>
+    <link rel="self" type="application/xml" href="http://localhost:8080/feed.xml"/>
+    <link rel="alternate" type="text/html" href="http://localhost:8080/"/>
+
+    <item>
+        <guid>http://localhost:8080/item/1</guid>
+        <title>Premier article</title>
+        <category term="Actualité"/>
+        <published>2024-06-01T10:00:00Z</published>
+        <image type="PNG" href="http://localhost:8080/images/img1.png" alt="Image 1"/>
+        <content type="text">Contenu de l'article en texte brut.</content>
+        <author>
+            <name>Jean Dupont</name>
+            <email>jean.dupont@univ-rouen.fr</email>
+            <uri>http://univ-rouen.fr/jean.dupont</uri>
+        </author>
+        <contributor>
+            <name>Marie Martin</name>
+        </contributor>
+    </item>
+
+    <item>
+        <guid>http://localhost:8080/item/2</guid>
+        <title>Deuxième article</title>
+        <category term="Événement"/>
+        <category term="Université"/>
+        <updated>2024-06-02T09:30:00Z</updated>
+        <image type="JPEG" href="http://localhost:8080/images/img2.jpg" alt="Image 2" length="2048"/>
+        <content type="html" src="http://localhost:8080/content/2.html">&lt;p&gt;Résumé de l'événement universitaire.&lt;/p&gt;</content>
+        <author>
+            <name>Sophie Leroy</name>
+        </author>
+        <contributor>
+            <name>Paul Durand</name>
+            <email>paul.durand@univ-rouen.fr</email>
+        </contributor>
+    </item>
+
+    <item>
+        <guid>http://localhost:8080/item/3</guid>
+        <title>Troisième article</title>
+        <category term="Recherche"/>
+        <published>2024-06-03T14:15:00Z</published>
+        <content type="text">Découverte scientifique majeure à l'université.</content>
+        <author>
+            <name>Claire Bernard</name>
+            <email>claire.bernard@univ-rouen.fr</email>
+        </author>
+        <author>
+            <name>Lucas Petit</name>
+        </author>
+    </item>
+</feed>

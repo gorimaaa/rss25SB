@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://univ.fr/rss25"
+           xmlns="http://univ.fr/rss25"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+  <!-- Simple types -->
+  <xs:simpleType name="lengthType">
+    <xs:restriction base="xs:integer"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="langType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-z]{2,3}(-[A-Z]{2,3})?"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mimeType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="rfc3339DateTime">
+    <xs:restriction base="xs:dateTime"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="guidType">
+    <xs:restriction base="xs:anyURI"/>
+  </xs:simpleType>
+
+  <!-- Root element -->
+  <xs:element name="feed">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="title" type="xs:string"/>
+        <xs:element name="pubDate" type="rfc3339DateTime"/>
+        <xs:element name="copyright" type="xs:string"/>
+        <xs:element name="link" type="LinkType" minOccurs="1" maxOccurs="unbounded"/>
+        <xs:element name="item" type="ItemType" minOccurs="1" maxOccurs="10"/>
+      </xs:sequence>
+      <xs:attribute name="lang" type="langType" use="required"/>
+      <xs:attribute name="version" type="xs:string" fixed="25"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Link definition -->
+  <xs:complexType name="LinkType">
+    <xs:attribute name="rel">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="self"/>
+          <xs:enumeration value="alternate"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="type" type="mimeType" use="required"/>
+    <xs:attribute name="href" type="xs:anyURI" use="required"/>
+  </xs:complexType>
+
+  <!-- Item definition -->
+  <xs:complexType name="ItemType">
+    <xs:sequence>
+      <xs:element name="guid" type="guidType"/>
+      <xs:element name="title" type="xs:string"/>
+      <xs:element name="category" type="CategoryType" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:choice>
+        <xs:element name="published" type="rfc3339DateTime"/>
+        <xs:element name="updated" type="rfc3339DateTime"/>
+      </xs:choice>
+      <xs:element name="image" type="ImageType" minOccurs="0"/>
+      <xs:element name="content" type="ContentType"/>
+      <xs:choice minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="author" type="PersonType"/>
+        <xs:element name="contributor" type="PersonType"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Category -->
+  <xs:complexType name="CategoryType">
+    <xs:attribute name="term" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <!-- Image -->
+  <xs:complexType name="ImageType">
+    <xs:attribute name="type">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="GIF"/>
+          <xs:enumeration value="JPEG"/>
+          <xs:enumeration value="JPG"/>
+          <xs:enumeration value="BMP"/>
+          <xs:enumeration value="PNG"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="href" type="xs:anyURI" use="required"/>
+    <xs:attribute name="alt" type="xs:string" use="required"/>
+    <xs:attribute name="length" type="lengthType" use="optional"/>
+  </xs:complexType>
+
+  <!-- Content -->
+  <xs:complexType name="ContentType" mixed="false">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="type">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="text"/>
+              <xs:enumeration value="html"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="src" type="xs:anyURI" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!-- Person (author/contributor) -->
+  <xs:complexType name="PersonType">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="email" type="xs:string" minOccurs="0"/>
+      <xs:element name="uri" type="xs:anyURI" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
