@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: rss25SB
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db
+    username: zakariajuba
+    password: zakariajuba
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop  # ou validate, create, create-drop selon ton besoin
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+
