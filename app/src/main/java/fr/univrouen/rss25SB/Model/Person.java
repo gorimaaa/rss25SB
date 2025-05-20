@@ -1,3 +1,4 @@
+// src/main/java/fr/univrouen/rss25SB/Model/Person.java
 package fr.univrouen.rss25SB.Model;
 
 import jakarta.xml.bind.annotation.*;
@@ -10,15 +11,14 @@ import lombok.NoArgsConstructor;
 @Data
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Person {
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://univ.fr/rss25")
     private String name;
 
-    @XmlElement
+    @XmlElement(namespace = "http://univ.fr/rss25")
     private String email;
 
-    @XmlElement
+    @XmlElement(namespace = "http://univ.fr/rss25")
     private String uri;
 
-    @XmlTransient
-    private String role; // à remplir lors du mapping (author/contributor)
+    // Le champ "role" n'est pas nécessaire pour la sérialisation XML
 }

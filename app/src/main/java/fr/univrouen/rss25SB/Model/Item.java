@@ -9,6 +9,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@XmlRootElement(name = "item", namespace = "http://univ.fr/rss25")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Item {
     @XmlElement(name = "guid", namespace = "http://univ.fr/rss25", required = true)
@@ -32,9 +33,9 @@ public class Item {
     @XmlElement(name = "content", namespace = "http://univ.fr/rss25", required = true)
     private Content content;
 
-    @XmlElements({
-            @XmlElement(name = "author", namespace = "http://univ.fr/rss25", type = Person.class),
-            @XmlElement(name = "contributor", namespace = "http://univ.fr/rss25", type = Person.class)
-    })
-    private List<Person> persons;
+    @XmlElement(name = "author", namespace = "http://univ.fr/rss25")
+    private List<Person> authors;
+
+    @XmlElement(name = "contributor", namespace = "http://univ.fr/rss25")
+    private List<Person> contributors;
 }

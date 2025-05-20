@@ -2,6 +2,8 @@ package fr.univrouen.rss25SB.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Where;
+
 import java.util.List;
 
 @Entity
@@ -36,9 +38,11 @@ public class ItemEntity {
     private ContentEmbeddable content;
 
     @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Where(clause = "role = 'author'")
     private List<PersonEntity> authors;
 
     @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Where(clause = "role = 'contributor'")
     private List<PersonEntity> contributors;
 
 

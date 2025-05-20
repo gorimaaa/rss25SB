@@ -2,6 +2,7 @@ package fr.univrouen.rss25SB.Mapper;
 
 import fr.univrouen.rss25SB.Entity.FeedEntity;
 import fr.univrouen.rss25SB.Entity.ItemEntity;
+import fr.univrouen.rss25SB.Entity.LinkEntity;
 import fr.univrouen.rss25SB.Model.*;
 
 import java.util.ArrayList;
@@ -17,10 +18,10 @@ public class FeedMapper {
         entity.setVersion(feed.getVersion());
 
         // Liens
-        List<FeedEntity.LinkEntity> linkEntities = new ArrayList<>();
+        List<LinkEntity> linkEntities = new ArrayList<>();
         if (feed.getLinks() != null) {
             for (Link link : feed.getLinks()) {
-                FeedEntity.LinkEntity linkEntity = entity.new LinkEntity();
+                LinkEntity linkEntity = new LinkEntity();
                 linkEntity.setRel(link.getRel());
                 linkEntity.setType(link.getType());
                 linkEntity.setHref(link.getHref());
@@ -28,8 +29,8 @@ public class FeedMapper {
                 linkEntities.add(linkEntity);
             }
         }
-        System.out.println("Liens : " + linkEntities);
         entity.setLinks(linkEntities);
+
 
         // Items
         List<ItemEntity> itemEntities = new ArrayList<>();
@@ -37,6 +38,7 @@ public class FeedMapper {
             for (Item item : feed.getItems()) {
                 ItemEntity itemEntity = new ItemEntity();
                 itemEntity.setFeed(entity);
+
                 if (item.getGuid() == null || item.getGuid().isEmpty()) {
                     throw new IllegalArgumentException("L'élément <guid> est manquant ou vide pour un item.");
                 }
@@ -75,30 +77,36 @@ public class FeedMapper {
                     itemEntity.setContent(content);
                 }
 
-                // Auteurs et contributeurs
+                // Dans FeedMapper.java, dans la boucle sur les items
+
+                // Auteurs
                 List<ItemEntity.PersonEntity> authors = new ArrayList<>();
-                List<ItemEntity.PersonEntity> contributors = new ArrayList<>();
-                if (item.getPersons() != null) {
-                    for (Person p : item.getPersons()) {
+                if (item.getAuthors() != null) {
+                    for (Person p : item.getAuthors()) {
                         ItemEntity.PersonEntity personEntity = new ItemEntity.PersonEntity();
                         personEntity.setName(p.getName());
                         personEntity.setEmail(p.getEmail());
                         personEntity.setUri(p.getUri());
+                        personEntity.setRole("author");
                         personEntity.setItem(itemEntity);
-
-                        // Détermination du rôle
-                        // On distingue author/contributor selon l'ordre d'apparition dans le XML
-                        // ou on ajoute un champ "role" dans Person lors du mapping JAXB
-                        if (p.getRole() != null && p.getRole().equals("contributor")) {
-                            personEntity.setRole("contributor");
-                            contributors.add(personEntity);
-                        } else {
-                            personEntity.setRole("author");
-                            authors.add(personEntity);
-                        }
+                        authors.add(personEntity);
                     }
                 }
                 itemEntity.setAuthors(authors);
+
+                // Contributeurs
+                List<ItemEntity.PersonEntity> contributors = new ArrayList<>();
+                if (item.getContributors() != null) {
+                    for (Person p : item.getContributors()) {
+                        ItemEntity.PersonEntity personEntity = new ItemEntity.PersonEntity();
+                        personEntity.setName(p.getName());
+                        personEntity.setEmail(p.getEmail());
+                        personEntity.setUri(p.getUri());
+                        personEntity.setRole("contributor");
+                        personEntity.setItem(itemEntity);
+                        contributors.add(personEntity);
+                    }
+                }
                 itemEntity.setContributors(contributors);
 
                 itemEntities.add(itemEntity);
