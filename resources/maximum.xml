@@ -1,0 +1,45 @@
+<!-- Exemple complet RSS25SB -->
+<feed xmlns="http://univ.fr/rss25" lang="fr-FR" version="25">
+  <title>Flux complet</title>
+  <pubDate>2024-05-21T12:00:00Z</pubDate>
+  <copyright>© 2024 MonSite</copyright>
+  <link rel="self" type="application/rss+xml" href="https://monsite.fr/rss"/>
+  <link rel="alternate" type="text/html" href="https://monsite.fr/"/>
+  <item>
+    <guid>https://monsite.fr/item/1</guid>
+    <title>Premier item</title>
+    <category term="actualité"/>
+    <category term="tech"/>
+    <published>2024-05-21T12:00:00Z</published>
+    <image type="PNG" href="https://monsite.fr/img1.png" alt="Image 1" length="12345"/>
+    <content type="html" src="https://monsite.fr/item/1/content.html">Contenu riche</content>
+    <author>
+      <name>Jean Dupont</name>
+      <email>jean@monsite.fr</email>
+      <uri>https://monsite.fr/auteurs/jean</uri>
+    </author>
+    <contributor>
+      <name>Marie Curie</name>
+      <email>marie@monsite.fr</email>
+      <uri>https://monsite.fr/auteurs/marie</uri>
+    </contributor>
+    <contributor>
+      <name>Paul Martin</name>
+    </contributor>
+  </item>
+  <item>
+    <guid>https://monsite.fr/item/2</guid>
+    <title>Deuxième item</title>
+    <category term="divers"/>
+    <updated>2024-05-22T08:30:00Z</updated>
+    <image type="JPEG" href="https://monsite.fr/img2.jpg" alt="Image 2"/>
+    <content type="text">Autre contenu</content>
+    <author>
+      <name>Alice</name>
+    </author>
+    <author>
+      <name>Bob</name>
+      <email>bob@monsite.fr</email>
+    </author>
+  </item>
+</feed>

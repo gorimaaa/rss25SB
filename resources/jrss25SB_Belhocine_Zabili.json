@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "2a6bc7a0-241b-4091-958b-e113fcb77267",
+		"name": "rss25SB_Belhocine_Zabili",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45161062"
+	},
+	"item": [
+		{
+			"name": "insert rss25sb",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<feed xmlns=\"http://univ.fr/rss25\" lang=\"fr\" version=\"25\">\r\n    <title>Exemple de flux RSS25SB</title>\r\n    <pubDate>2024-05-01T12:00:00Z</pubDate>\r\n    <copyright>© Université de Rouen 2024</copyright>\r\n    <link rel=\"self\" type=\"application/xml\" href=\"http://localhost:8080/feed.xml\"/>\r\n    <link rel=\"alternate\" type=\"text/html\" href=\"http://localhost:8080/\"/>\r\n\r\n    <item>\r\n        <guid>http://localhost:8080/item/1</guid>\r\n        <title>Premier article</title>\r\n        <category term=\"Actualité\"/>\r\n        <published>2024-06-01T10:00:00Z</published>\r\n        <image type=\"PNG\" href=\"http://localhost:8080/images/img1.png\" alt=\"Image 1\"/>\r\n        <content type=\"text\">Contenu de l'article en texte brut.</content>\r\n        <author>\r\n            <name>Jean Dupont</name>\r\n            <email>jean.dupont@univ-rouen.fr</email>\r\n            <uri>http://univ-rouen.fr/jean.dupont</uri>\r\n        </author>\r\n        <contributor>\r\n            <name>Marie Martin</name>\r\n        </contributor>\r\n    </item>\r\n\r\n    <item>\r\n        <guid>http://localhost:8080/item/2</guid>\r\n        <title>Deuxième article</title>\r\n        <category term=\"Événement\"/>\r\n        <category term=\"Université\"/>\r\n        <updated>2024-06-02T09:30:00Z</updated>\r\n        <image type=\"JPEG\" href=\"http://localhost:8080/images/img2.jpg\" alt=\"Image 2\" length=\"2048\"/>\r\n        <content type=\"html\" src=\"http://localhost:8080/content/2.html\">&lt;p&gt;Résumé de l'événement universitaire.&lt;/p&gt;</content>\r\n        <author>\r\n            <name>Sophie Leroy</name>\r\n        </author>\r\n        <contributor>\r\n            <name>Paul Durand</name>\r\n            <email>paul.durand@univ-rouen.fr</email>\r\n        </contributor>\r\n    </item>\r\n\r\n    <item>\r\n        <guid>http://localhost:8080/item/3</guid>\r\n        <title>Troisième article</title>\r\n        <category term=\"Recherche\"/>\r\n        <published>2024-06-03T14:15:00Z</published>\r\n        <content type=\"text\">Découverte scientifique majeure à l'université.</content>\r\n        <author>\r\n            <name>Claire Bernard</name>\r\n            <email>claire.bernard@univ-rouen.fr</email>\r\n        </author>\r\n        <author>\r\n            <name>Lucas Petit</name>\r\n        </author>\r\n    </item>\r\n</feed>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/rss25SB/insert",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"rss25SB",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "articles list xml",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/rss25SB/resume/xml",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"rss25SB",
+						"resume",
+						"xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "article details xml",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/rss25SB/resume/xml/1",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"rss25SB",
+						"resume",
+						"xml",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "articles list html",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/rss25SB/resume/html",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"rss25SB",
+						"resume",
+						"html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "article details html",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/rss25SB/html/1",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"rss25SB",
+						"html",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search articles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/rss25SB/search?date=2024-05-01T00:00:00Z&category=Informatique",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"rss25SB",
+						"search"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2024-05-01T00:00:00Z"
+						},
+						{
+							"key": "category",
+							"value": "Informatique"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete article by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/rss25SB/delete/6",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"rss25SB",
+						"delete",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Welcome page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}",
+					"host": [
+						"{{URL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "help page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/help",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"help"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
