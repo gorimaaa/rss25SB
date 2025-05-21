@@ -26,7 +26,7 @@ public class ItemEntity {
     private String title;
 
     @ElementCollection
-    private List<String> categories; // Stocke les "term" des catégories
+    private List<String> categories;
 
     private String published;
     private String updated;

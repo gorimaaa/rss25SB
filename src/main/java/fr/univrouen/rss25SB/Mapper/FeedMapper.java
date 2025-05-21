@@ -17,7 +17,6 @@ public class FeedMapper {
         entity.setLang(feed.getLang());
         entity.setVersion(feed.getVersion());
 
-        // Liens
         List<LinkEntity> linkEntities = new ArrayList<>();
         if (feed.getLinks() != null) {
             for (Link link : feed.getLinks()) {
@@ -32,7 +31,6 @@ public class FeedMapper {
         entity.setLinks(linkEntities);
 
 
-        // Items
         List<ItemEntity> itemEntities = new ArrayList<>();
         if (feed.getItems() != null) {
             for (Item item : feed.getItems()) {
@@ -45,7 +43,6 @@ public class FeedMapper {
                 itemEntity.setGuid(item.getGuid());
                 itemEntity.setTitle(item.getTitle());
 
-                // Catégories
                 List<String> categories = new ArrayList<>();
                 if (item.getCategories() != null) {
                     for (Category cat : item.getCategories()) {
@@ -54,11 +51,9 @@ public class FeedMapper {
                 }
                 itemEntity.setCategories(categories);
 
-                // Dates
                 itemEntity.setPublished(item.getPublished());
                 itemEntity.setUpdated(item.getUpdated());
 
-                // Image
                 if (item.getImage() != null) {
                     ItemEntity.ImageEmbeddable img = new ItemEntity.ImageEmbeddable();
                     img.setType(item.getImage().getType());
@@ -68,7 +63,6 @@ public class FeedMapper {
                     itemEntity.setImage(img);
                 }
 
-                // Content
                 if (item.getContent() != null) {
                     ItemEntity.ContentEmbeddable content = new ItemEntity.ContentEmbeddable();
                     content.setValue(item.getContent().getValue());
@@ -77,9 +71,7 @@ public class FeedMapper {
                     itemEntity.setContent(content);
                 }
 
-                // Dans FeedMapper.java, dans la boucle sur les items
 
-                // Auteurs
                 List<ItemEntity.PersonEntity> authors = new ArrayList<>();
                 if (item.getAuthors() != null) {
                     for (Person p : item.getAuthors()) {
@@ -94,7 +86,6 @@ public class FeedMapper {
                 }
                 itemEntity.setAuthors(authors);
 
-                // Contributeurs
                 List<ItemEntity.PersonEntity> contributors = new ArrayList<>();
                 if (item.getContributors() != null) {
                     for (Person p : item.getContributors()) {

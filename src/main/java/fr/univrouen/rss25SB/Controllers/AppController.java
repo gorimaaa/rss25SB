@@ -36,28 +36,22 @@ public class AppController {
     @ResponseBody
     public InsertResponse insertFeed(@RequestBody String xml) {
         try {
-            // Charger le schéma XSD
             SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
             var schema = sf.newSchema(new ClassPathResource("rss25sb.xsd").getFile());
 
-            // Créer le contexte JAXB
             JAXBContext context = JAXBContext.newInstance(Feed.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
-            unmarshaller.setSchema(schema); // Active la validation
+            unmarshaller.setSchema(schema); 
 
-            // Désérialiser et valider
             Feed feed = (Feed) unmarshaller.unmarshal(new java.io.StringReader(xml));
 
-            // Vérifier unicité
             if (feedRepository.findByTitleAndPubDate(feed.getTitle(), feed.getPubDate()).isPresent()) {
                 System.out.println("Unicité erreur");
                 return new InsertResponse("ERROR");
             }
 
-            // Mapper Feed -> FeedEntity via FeedMapper
             FeedEntity entity = FeedMapper.mapFeedToEntity(feed);
 
-            // Sauvegarder
             FeedEntity saved = feedRepository.save(entity);
             return new InsertResponse(saved.getId(), "INSERTED");
         } catch (Exception e) {
@@ -107,14 +101,12 @@ public class AppController {
                         .toList();
             }
 
-            // Mapper l'image
             Image image = null;
             if (entity.getImage() != null) {
                 var img = entity.getImage();
                 image = new Image(img.getType(), img.getHref(), img.getAlt(), img.getLength());
             }
 
-            // Mapper le contenu
             Content content = null;
             if (entity.getContent() != null) {
                 var c = entity.getContent();
@@ -157,19 +149,14 @@ public class AppController {
         if (opt.isPresent()) {
             var entity = opt.get();
 
-            // Mapper les catégories
             List<String> categories = entity.getCategories();
 
-            // Mapper l'image
             var image = entity.getImage();
 
-            // Mapper le contenu
             var content = entity.getContent();
 
-            // Mapper les auteurs
             var authors = entity.getAuthors();
 
-            // Mapper les contributeurs
             var contributors = entity.getContributors();
 
             model.addAttribute("item", entity);
@@ -214,7 +201,6 @@ public class AppController {
         try {
             var items = itemRepository.findAll().stream();
 
-            // Filtre sur la date si présente
             if (date != null && !date.isEmpty()) {
                 items = items.filter(item -> {
                     String itemDate = item.getPublished() != null ? item.getPublished() : item.getUpdated();
@@ -222,7 +208,6 @@ public class AppController {
                 });
             }
 
-            // Filtre sur la catégorie si présente
             if (category != null && !category.isEmpty()) {
                 items = items.filter(item -> item.getCategories() != null && item.getCategories().contains(category));
             }

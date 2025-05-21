@@ -10,7 +10,7 @@ spring:
       maximum-pool-size: 3  
   jpa:
     hibernate:
-      ddl-auto: create-drop  # ou validate, create, create-drop selon ton besoin
+      ddl-auto: create-drop
     show-sql: true
     properties:
       hibernate:

@@ -20,5 +20,4 @@ public class Person {
     @XmlElement(namespace = "http://univ.fr/rss25")
     private String uri;
 
-    // Le champ "role" n'est pas nécessaire pour la sérialisation XML
 }
