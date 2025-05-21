@@ -1,1 +1,11 @@
-{ "build": { "type": "maven", "goal": "package" }, "deploy": { "goal": "spring-boot:run" } }
+{
+    "build": {
+        "type": "maven",
+        "goal": "-Pprod package",
+        "base-dir": "app"
+    },
+    "deploy": {
+        "goal": "-Pprod spring-boot:run",
+        "base-dir": "app"
+    }
+}
