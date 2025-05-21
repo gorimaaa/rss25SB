@@ -9,13 +9,10 @@ spring:
     hikari:
       maximum-pool-size: 1
       idle-timeout: 10000 # 10 secondes avant de fermer une connexion inactive
-      max-lifetime: 30000 # 30 secondes de vie max d'une connexion
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: false
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-
-
