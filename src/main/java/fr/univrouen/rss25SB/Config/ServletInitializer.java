@@ -1,5 +1,6 @@
-package fr.univrouen.rss25SB;
+package fr.univrouen.rss25SB.Config;
 
+import fr.univrouen.rss25SB.Rss25SbApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
