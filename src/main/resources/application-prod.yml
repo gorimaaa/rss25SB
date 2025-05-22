@@ -2,7 +2,7 @@ spring:
   application:
     name: rss25SB
   datasource:
-    url: jdbc:postgresql://bcdinkaltttrftd7aykw-postgresql.services.clever-cloud.com:50013/bcdinkaltttrftd7aykw
+    url: jdbc:postgresql://bpwccstqg7yrxyljzvzu-postgresql.services.clever-cloud.com:5945/bpwccstqg7yrxyljzvzu
     username: ufukbgb6bn4jxvoueqwd
     password: bwKeXGt7AgL22r8GyhtrJVWqcf1RWS
     driver-class-name: org.postgresql.Driver
