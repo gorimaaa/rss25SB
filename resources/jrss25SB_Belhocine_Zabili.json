@@ -3,7 +3,8 @@
 		"_postman_id": "2a6bc7a0-241b-4091-958b-e113fcb77267",
 		"name": "rss25SB_Belhocine_Zabili",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "45161062"
+		"_exporter_id": "45161062",
+		"_collection_link": "https://restless-crater-809668-1.postman.co/workspace/My-Workspace~6610ff86-acda-42f4-8a7b-abda223060d1/collection/45161062-2a6bc7a0-241b-4091-958b-e113fcb77267?action=share&source=collection_link&creator=45161062"
 	},
 	"item": [
 		{
@@ -13,7 +14,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<feed xmlns=\"http://univ.fr/rss25\" lang=\"fr\" version=\"25\">\r\n    <title>Exemple de flux RSS25SB</title>\r\n    <pubDate>2024-05-01T12:00:00Z</pubDate>\r\n    <copyright>© Université de Rouen 2024</copyright>\r\n    <link rel=\"self\" type=\"application/xml\" href=\"http://localhost:8080/feed.xml\"/>\r\n    <link rel=\"alternate\" type=\"text/html\" href=\"http://localhost:8080/\"/>\r\n\r\n    <item>\r\n        <guid>http://localhost:8080/item/1</guid>\r\n        <title>Premier article</title>\r\n        <category term=\"Actualité\"/>\r\n        <published>2024-06-01T10:00:00Z</published>\r\n        <image type=\"PNG\" href=\"http://localhost:8080/images/img1.png\" alt=\"Image 1\"/>\r\n        <content type=\"text\">Contenu de l'article en texte brut.</content>\r\n        <author>\r\n            <name>Jean Dupont</name>\r\n            <email>jean.dupont@univ-rouen.fr</email>\r\n            <uri>http://univ-rouen.fr/jean.dupont</uri>\r\n        </author>\r\n        <contributor>\r\n            <name>Marie Martin</name>\r\n        </contributor>\r\n    </item>\r\n\r\n    <item>\r\n        <guid>http://localhost:8080/item/2</guid>\r\n        <title>Deuxième article</title>\r\n        <category term=\"Événement\"/>\r\n        <category term=\"Université\"/>\r\n        <updated>2024-06-02T09:30:00Z</updated>\r\n        <image type=\"JPEG\" href=\"http://localhost:8080/images/img2.jpg\" alt=\"Image 2\" length=\"2048\"/>\r\n        <content type=\"html\" src=\"http://localhost:8080/content/2.html\">&lt;p&gt;Résumé de l'événement universitaire.&lt;/p&gt;</content>\r\n        <author>\r\n            <name>Sophie Leroy</name>\r\n        </author>\r\n        <contributor>\r\n            <name>Paul Durand</name>\r\n            <email>paul.durand@univ-rouen.fr</email>\r\n        </contributor>\r\n    </item>\r\n\r\n    <item>\r\n        <guid>http://localhost:8080/item/3</guid>\r\n        <title>Troisième article</title>\r\n        <category term=\"Recherche\"/>\r\n        <published>2024-06-03T14:15:00Z</published>\r\n        <content type=\"text\">Découverte scientifique majeure à l'université.</content>\r\n        <author>\r\n            <name>Claire Bernard</name>\r\n            <email>claire.bernard@univ-rouen.fr</email>\r\n        </author>\r\n        <author>\r\n            <name>Lucas Petit</name>\r\n        </author>\r\n    </item>\r\n</feed>",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<feed xmlns=\"http://univ.fr/rss25\" lang=\"fr\" version=\"25\">\r\n    <title>Un nouveau flux RSS25SB</title>\r\n    <pubDate>2024-06-01T12:00:00Z</pubDate>\r\n    <copyright>© Université de Rouen 2024</copyright>\r\n    <link rel=\"self\" type=\"application/xml\" href=\"http://localhost:8080/feed.xml\"/>\r\n    <link rel=\"alternate\" type=\"text/html\" href=\"http://localhost:8080/\"/>\r\n\r\n    <item>\r\n        <guid>http://localhost:8080/item/1</guid>\r\n        <title>Premier article</title>\r\n        <category term=\"Actualité\"/>\r\n        <published>2024-06-01T10:00:00Z</published>\r\n        <image type=\"PNG\" href=\"http://localhost:8080/images/img1.png\" alt=\"Image 1\"/>\r\n        <content type=\"text\">Contenu de l'article en texte brut.</content>\r\n        <author>\r\n            <name>Jean Dupont</name>\r\n            <email>jean.dupont@univ-rouen.fr</email>\r\n            <uri>http://univ-rouen.fr/jean.dupont</uri>\r\n        </author>\r\n        <contributor>\r\n            <name>Marie Martin</name>\r\n        </contributor>\r\n    </item>\r\n\r\n    <item>\r\n        <guid>http://localhost:8080/item/2</guid>\r\n        <title>Deuxième article</title>\r\n        <category term=\"Événement\"/>\r\n        <category term=\"Université\"/>\r\n        <updated>2024-06-02T09:30:00Z</updated>\r\n        <image type=\"JPEG\" href=\"http://localhost:8080/images/img2.jpg\" alt=\"Image 2\" length=\"2048\"/>\r\n        <content type=\"html\" src=\"http://localhost:8080/content/2.html\">&lt;p&gt;Résumé de l'événement universitaire.&lt;/p&gt;</content>\r\n        <author>\r\n            <name>Sophie Leroy</name>\r\n        </author>\r\n        <contributor>\r\n            <name>Paul Durand</name>\r\n            <email>paul.durand@univ-rouen.fr</email>\r\n        </contributor>\r\n    </item>\r\n\r\n    <item>\r\n        <guid>http://localhost:8080/item/3</guid>\r\n        <title>Troisième article</title>\r\n        <category term=\"Recherche\"/>\r\n        <published>2024-06-03T14:15:00Z</published>\r\n        <content type=\"text\">Découverte scientifique majeure à l'université.</content>\r\n        <author>\r\n            <name>Claire Bernard</name>\r\n            <email>claire.bernard@univ-rouen.fr</email>\r\n        </author>\r\n        <author>\r\n            <name>Lucas Petit</name>\r\n        </author>\r\n    </item>\r\n</feed>",
 					"options": {
 						"raw": {
 							"language": "xml"
@@ -58,7 +59,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/rss25SB/resume/xml/1",
+					"raw": "{{URL}}/rss25SB/resume/xml/27",
 					"host": [
 						"{{URL}}"
 					],
@@ -66,7 +67,7 @@
 						"rss25SB",
 						"resume",
 						"xml",
-						"1"
+						"27"
 					]
 				}
 			},
@@ -97,14 +98,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/rss25SB/html/1",
+					"raw": "{{URL}}/rss25SB/html/27",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"rss25SB",
 						"html",
-						"1"
+						"27"
 					]
 				}
 			},
@@ -116,7 +117,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/rss25SB/search?date=2024-05-01T00:00:00Z&category=Informatique",
+					"raw": "{{URL}}/rss25SB/search?date=2024-05-01T00:00:00Z&category=Actualité",
 					"host": [
 						"{{URL}}"
 					],
@@ -131,7 +132,7 @@
 						},
 						{
 							"key": "category",
-							"value": "Informatique"
+							"value": "Actualité"
 						}
 					]
 				}
@@ -144,21 +145,21 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/rss25SB/delete/6",
+					"raw": "{{URL}}/rss25SB/delete/27",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"rss25SB",
 						"delete",
-						"6"
+						"27"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Welcome page",
+			"name": "welcome page",
 			"request": {
 				"method": "GET",
 				"header": [],
