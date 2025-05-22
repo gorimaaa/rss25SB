@@ -6,9 +6,9 @@ spring:
     username: ufukbgb6bn4jxvoueqwd
     password: bwKeXGt7AgL22r8GyhtrJVWqcf1RWS
     driver-class-name: org.postgresql.Driver
-    hikari:
-      maximum-pool-size: 1
-      idle-timeout: 10000 # 10 secondes avant de fermer une connexion inactive
+    #hikari:
+    #  maximum-pool-size: 1
+    #  idle-timeout: 10000 # 10 secondes avant de fermer une connexion inactive
   jpa:
     hibernate:
       ddl-auto: update
